@@ -17,8 +17,8 @@ MENTOR MENTEE is a web-based application built with PHP that facilitates mentors
 ## Installation
 
 Clone the repository to your local machine.
-```javascript
 git clone
+```javascript
 
 https://github.com/azaadmottan/mentor-mentee.git
 ```
