@@ -66,9 +66,9 @@
             ?>
         </div>
         
-        <div class="col-10 p-3">
+        <div class="col-10 p-3 bg-body-tertiary">
             <div class="container bg-body-secondary mt-4 rounded-2 p-4">
-                <div class="row d-flex flex-column flex-md-row p-2 bg-light rounded-2">
+                <div class="row d-flex flex-column flex-md-row p-2 bg-dark-subtle rounded-2">
                     <div class="col">
                         <form method="post">
                             <input type="text" class="form-control border-2 shadow-none fs-5" placeholder="Search mentees here...">
@@ -82,7 +82,7 @@
 
             <div class="container bg-body-secondary mt-4 rounded-2 p-4">
 
-                <div class="bg-light p-2">
+                <div class="bg-dark-subtle p-2 rounded-2">
                     <div class="row">
                         <h4 class="text-center">Mentors</h4>
                     </div>
@@ -101,13 +101,13 @@
 
             <div class="container bg-body-secondary mt-4 rounded-2 p-4">
 
-                <div class="bg-light p-4">
+                <div class="bg-dark-subtle p-4 mb-2 rounded-2">
                     <div class="row">
                         <h4 class="text-center">Authorized Mentors</h4>
                     </div>
 
-                    <form method="post" id="newEmpIdForm">
-                    <div class="row d-flex flex-column flex-md-row p-3 bg-light rounded-2">
+                    <form method="post" id="newEmpIdForm" class="bg-dark-subtle">
+                    <div class="row d-flex flex-column flex-md-row p-3 rounded-2">
                         <div class="col">
                             <input type="text" class="form-control border-2 shadow-none fs-5" id="newEmpId" placeholder="Enter employee id" autocomplete="off">
                         </div>
@@ -115,7 +115,7 @@
                             <input type="text" class="form-control border-2 shadow-none fs-5" id="newEmpName" placeholder="Enter employee name" autocomplete="off">
                         </div>
                     </div>
-                    <div class="row d-flex flex-column flex-md-row p-3 bg-light rounded-3">
+                    <div class="row d-flex flex-column flex-md-row p-3 rounded-3">
                         <div class="col d-flex align-items-center mt-lg-0 m-1">
                             <button type="submit" id="confirmAddEmpId" class="btn btn-primary">Add Mentor</button>
                         </div>
@@ -124,7 +124,7 @@
 
                 </div>
 
-                <div class="bg-light p-4">
+                <div class="bg-dark-subtle p-4 rounded-2">
                     <div class="row" id="newEmpIdRecord">
 
                     </div>
@@ -152,7 +152,7 @@
 
         const message = (msg) => {
 
-            let toast = $("<div></div>").addClass("toastMsg").html(msg);
+            let toast = $("<div></div>").addClass("toastMsg bg-body-secondary").html(msg);
             messageBox.append(toast);
 
             setTimeout(() => {

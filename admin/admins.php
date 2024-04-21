@@ -73,10 +73,10 @@
             ?>
         </div>
 
-        <div class="col-10 p-3 overflow-y-scroll">
+        <div class="col-10 p-3 overflow-y-scroll bg-body-tertiary">
         
             <div class="container bg-body-secondary mt-4 rounded-2 p-4">
-                <div class="row d-flex flex-column flex-md-row p-2 bg-light rounded-2">
+                <div class="row d-flex flex-column flex-md-row p-2 bg-dark-subtle rounded-2">
                     <div class="col">
                         <form method="post">
                             <input type="text" class="form-control border-2 shadow-none fs-5" placeholder="Search admin here...">
@@ -90,7 +90,7 @@
 
             <div class="container bg-body-secondary mt-4 rounded-2 p-4">
 
-                <div class="bg-light p-2">
+                <div class="bg-dark-subtle p-2 rounded-2">
                     <div class="row">
                         <h4 class="text-center">Admins</h4>
                     </div>

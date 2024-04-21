@@ -38,11 +38,11 @@
             ?>
         </div>
         
-        <div class="col-10 p-3 overflow-y-scroll">
+        <div class="col-10 p-3 overflow-y-scroll bg-body-tertiary">
         
             <div class="container bg-body-secondary mt-4 rounded-2 p-4 ">
                 <div>
-                    <div class="row d-flex flex-column flex-md-row p-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Name: <?php echo ($_SESSION['studentName']);?>
                         </div>
@@ -50,7 +50,7 @@
                             Roll No.: <?php echo ($_SESSION['studentRollNo']);?>
                         </div>
                     </div>
-                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Course: <?php echo ($_SESSION['studentCourse']);?>
                         </div>
@@ -58,7 +58,7 @@
                             Branch: <?php echo ($_SESSION['studentBranch']);?>
                         </div>
                     </div>
-                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Semester: <?php echo ($_SESSION['studentSemester']);?>
                         </div>
@@ -66,7 +66,7 @@
                             Mobile No: <?php echo ($_SESSION['studentPhone']);?>
                         </div>
                     </div>
-                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Email: <?php echo ($_SESSION['studentUserId']);?>
                         </div>
@@ -74,7 +74,7 @@
                             Address: <?php echo ($_SESSION['studentAddress']);?>
                         </div>
                     </div>
-                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Your Mentor: <?php if($_SESSION['studentMentor'] == "null") {echo ("<i>Mentor is not allocated</i>");} else {echo ($_SESSION['studentMentor']);}?>
                         </div>

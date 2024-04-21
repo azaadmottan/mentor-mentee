@@ -65,6 +65,11 @@
                             <i class="fa-solid fa-address-card me-3"></i>Profile
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <span role="button" id="toggle-theme-mode" class="nav-link text-white fs-5 p-1 px-3 my-1">
+                            <i class="fa-solid fa-circle-half-stroke me-3"></i>Toggle Theme
+                        </span>
+                    </li>
                     <li class="nav-item" data-bs-toggle="modal" data-bs-target="#logoutModal">
                         <span role="button" class="nav-link text-white fs-5 p-1 px-3 my-1">
                             <i class="fa-solid fa-arrow-right-from-bracket me-3" ></i>Logout
@@ -119,6 +124,22 @@
                         window.location.href = "../login/students.php";
                     }
                 })
+            });
+            // get the stored theme of the web application
+
+            let storedThemeMode = localStorage.getItem("menteeThemeMode");
+            if (storedThemeMode) {
+                $("body").attr("data-bs-theme", storedThemeMode);
+            }
+
+            $("#toggle-theme-mode").on("click", function(e) {
+
+                // let currentTheme = $("body").attr("data-bs-theme");
+                let currentThemeMode = localStorage.getItem("menteeThemeMode") || "light";
+                let toggleTheme = (currentThemeMode === "light") ? "dark" : "light";
+                
+                localStorage.setItem("menteeThemeMode", toggleTheme);
+                $("body").attr("data-bs-theme", toggleTheme);
             });
         });
     </script>

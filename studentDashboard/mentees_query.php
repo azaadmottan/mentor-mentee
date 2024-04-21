@@ -21,16 +21,16 @@
             ?>
         </div>
         
-        <div class="col-10 p-3">
+        <div class="col-10 p-3 bg-body-tertiary">
         
             <div class="container bg-body-secondary mt-4 rounded-2 p-4">
                 <form method="post" id="menteeQuery">
-                <div class="row d-flex flex-column flex-md-row p-2 bg-light rounded-2">
+                <div class="row d-flex flex-column flex-md-row p-2 bg-dark-subtle rounded-2">
                     <label for="title" class="form-label fs-5 fw-medium">Title</label>
                     <input type="text" id="title" class="form-control border-2 shadow-none fs-5" placeholder="Enter title here...">
                 </div>
 
-                <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                     <label for="description" class="form-label fs-5 fw-medium">Description</label>
                     <textarea type="text" id="description" class="form-control border-2 shadow-none fs-5" placeholder="Enter description here..."></textarea>
                 </div>
@@ -43,7 +43,7 @@
 
             <div class="container bg-body-secondary mt-4 rounded-2 p-4">
 
-                <div class="bg-light p-2">
+                <div class="bg-bg-dark-subtle p-2">
                     <div class="row">
                         <h3 class="text-center">Your Query</h3>
                     </div>

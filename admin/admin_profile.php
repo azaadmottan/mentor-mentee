@@ -20,11 +20,11 @@
             ?>
         </div>
         
-        <div class="col-10 p-3 h-75 overflow-y-scroll">
+        <div class="col-10 p-3 h-75 bg-body-tertiary">
         
             <div class="container bg-body-secondary mt-4 rounded-2 p-4 ">
                 <div>
-                    <div class="row d-flex flex-column flex-md-row p-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Name: <span id="adminName"></span>
                         </div>
@@ -32,7 +32,7 @@
                             Employee Id: <span id="adminEmpId"></span>
                         </div>
                     </div>
-                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Email: <span id="adminEmail"></span>
                         </div>
@@ -40,7 +40,7 @@
                             Mobile No: <span id="adminPhone"></span>
                         </div>
                     </div>
-                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Address: <span id="adminAddress"></span>
                         </div>
@@ -122,7 +122,7 @@
 
             <form method="post" id="adminUPForm">
             <div class="modal-body fw-medium">
-                <div class="row d-flex flex-column flex-md-row p-2 bg-light rounded-2">
+                <div class="row d-flex flex-column flex-md-row p-2 bg-dark-subtle rounded-2">
                     <div class="col fw-medium fs-6">
                         Password: <input type="text" id="adminUPass" class="form-control shadow-none" autocomplete="off" required >
                     </div>
@@ -163,7 +163,7 @@
 
             const message = (msg) => {
 
-                let toast = $("<div></div>").addClass("toastMsg").html(msg);
+                let toast = $("<div></div>").addClass("toastMsg bg-body-secondary").html(msg);
                 messageBox.append(toast);
 
                 setTimeout(() => {

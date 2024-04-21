@@ -32,7 +32,7 @@
         while ($row = mysqli_fetch_assoc($result))
         {
             $output .= "
-                    <div class='p-3 mt-2 bg-white text-dark border rounded-3'>
+                    <div class='p-3 mt-2 bg-body-tertiary border rounded-3'>
                         <div class='bg-body-secondary rounded-2 p-1 mb-2 d-flex align-items-center justify-content-between'>
                             <h4 class='fst-italic w-75'>{$row['title']}</h4>
                             
@@ -60,7 +60,7 @@
                         {$row['description']}
                     </p>
 
-                    <div class='bg-light p-1 rounded-2 d-flex align-items-center justify-content-between gap-2'>
+                    <div class='bg-dark-subtle p-1 rounded-2 d-flex align-items-center justify-content-between gap-2'>
 
                         <div>
                             <span class='fw-semibold'>Student Name: <span class='fst-italic'>{$row['studentName']}</span></span>

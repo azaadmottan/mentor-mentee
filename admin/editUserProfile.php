@@ -24,7 +24,7 @@
         <div class="col-10 p-3">
 
             <div class="container bg-body-secondary mt-4 rounded-2 p-4">
-            <div class="bg-light p-2 rounded-2">
+            <div class="bg-dark-subtle p-2 rounded-2">
                 
                 <div class="row mb-2">
                     <h4 class="text-center">Update Mentee Password</h4>
@@ -51,7 +51,7 @@
             </div>
 
             <div class="container bg-body-secondary mt-4 rounded-2 p-4">
-            <div class="bg-light p-2 rounded-2">
+            <div class="bg-dark-subtle p-2 rounded-2">
                 
                 <div class="row mb-2">
                     <h4 class="text-center">Update Mentor Password</h4>
@@ -98,7 +98,7 @@
         
         const message = (msg) => {
 
-            let toast = $("<div></div>").addClass("toastMsg").html(msg);
+            let toast = $("<div></div>").addClass("toastMsg bg-body-secondary").html(msg);
             messageBox.append(toast);
 
             setTimeout(() => {

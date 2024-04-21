@@ -38,11 +38,11 @@
             ?>
         </div>
         
-        <div class="col-10 p-3 overflow-y-scroll">
+        <div class="col-10 p-3 overflow-y-scroll bg-body-tertiary">
         
             <div class="container bg-body-secondary mt-4 rounded-2 p-4 ">
                 <div>
-                    <div class="row d-flex flex-column flex-md-row p-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Name: <?php echo ($_SESSION['teacherName']);?>
                         </div>
@@ -50,7 +50,7 @@
                             Email: <?php echo ($_SESSION['teacherUserId']);?>
                         </div>
                     </div>
-                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Employee Id: <?php echo ($_SESSION['teacherEmpId']);?>
                         </div>
@@ -58,7 +58,7 @@
                             Mobile No: <?php echo ($_SESSION['teacherPhone']);?>
                         </div>
                     </div>
-                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Address: <?php echo ($_SESSION['teacherAddress']);?>
                         </div>
@@ -68,7 +68,7 @@
                 
             <div class="container bg-body-secondary mt-4 rounded-2 p-4">
 
-                <div class="row p-2 bg-light text-center">
+                <div class="row p-2 bg-dark-subtle text-center">
                     <h4>Queries of Student</h4>
                 </div>
                 <h5 class="text-center mt-3">No Query Found !</h5>

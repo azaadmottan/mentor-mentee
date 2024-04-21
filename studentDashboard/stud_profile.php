@@ -20,11 +20,11 @@
             ?>
         </div>
         
-        <div class="col-10 p-3 h-75 overflow-y-scroll">
+        <div class="col-10 p-3 h-75 overflow-y-scroll bg-body-tertiary">
         
             <div class="container bg-body-secondary mt-4 rounded-2 p-4 ">
                 <div>
-                    <div class="row d-flex flex-column flex-md-row p-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Name: <span id="studentName"></span>
                         </div>
@@ -32,7 +32,7 @@
                             Roll No: <span id="studentRollNo"></span>
                         </div>
                     </div>
-                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Email: <span id="studentEmail"></span>
                         </div>
@@ -40,7 +40,7 @@
                             Mobile No: <span id="studentPhone"></span>
                         </div>
                     </div>
-                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Course <span id="studentCourse"></span>
                         </div>
@@ -48,7 +48,7 @@
                             Branch: <span id="studentBranch"></span>
                         </div>
                     </div>
-                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Semester <span id="studentSem"></span>
                         </div>
@@ -56,7 +56,7 @@
                             Your Mentor: <span id="studentMentor"></span>
                         </div>
                     </div>
-                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Address: <span id="studentAddress"></span>
                         </div>
@@ -64,7 +64,7 @@
                             Father's Name: <span id="studentFName"></span>
                         </div>
                     </div>
-                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Father's Profession: <span id="studentFProf"></span>
                         </div>

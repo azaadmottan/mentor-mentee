@@ -20,11 +20,11 @@
             ?>
         </div>
         
-        <div class="col-10 p-3 h-75 overflow-y-scroll">
+        <div class="col-10 p-3 h-75 overflow-y-scroll bg-body-tertiary">
         
             <div class="container bg-body-secondary mt-4 rounded-2 p-4 ">
                 <div>
-                    <div class="row d-flex flex-column flex-md-row p-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Name: <span id="teacherName"></span>
                         </div>
@@ -32,7 +32,7 @@
                             Employee Id: <span id="teacherEmpId"></span>
                         </div>
                     </div>
-                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Email: <span id="teacherEmail"></span>
                         </div>
@@ -40,7 +40,7 @@
                             Mobile No: <span id="teacherPhone"></span>
                         </div>
                     </div>
-                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                         <div class="col fw-medium fs-5">
                             Address: <span id="teacherAddress"></span>
                         </div>
@@ -122,7 +122,7 @@
 
             <form method="post" id="teachUPForm">
             <div class="modal-body fw-medium">
-                <div class="row d-flex flex-column flex-md-row p-2 bg-light rounded-2">
+                <div class="row d-flex flex-column flex-md-row p-2 bg-dark-subtle rounded-2">
                     <div class="col fw-medium fs-6">
                         Password: <input type="text" id="teachUPass" class="form-control shadow-none" autocomplete="off" required >
                     </div>

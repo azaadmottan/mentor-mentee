@@ -19,7 +19,7 @@
         while ($row = mysqli_fetch_assoc($result))
         {
             $output .= "
-                    <div class='p-3 mt-2 bg-white text-dark border rounded-3'>
+                    <div class='p-3 mt-2 bg-body-tertiary border rounded-3'>
                         <div class='bg-body-secondary rounded-2 p-2 mb-2 d-flex align-items-center justify-content-between'>
                             <h4 class='fst-italic w-75'>{$row['title']}</h4>
                             
