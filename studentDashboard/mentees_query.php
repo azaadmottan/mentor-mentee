@@ -13,15 +13,15 @@
     
     <div id="messageBox"></div>
 
-    <div class="d-flex">
+    <div class="d-flex flex-lg-row flex-column">
 
-        <div class="col-2">
+        <div class="col-lg-2 sticky-top" style="height: 8vh;">
             <?php
                 require ("./sidebar.php");
             ?>
         </div>
         
-        <div class="col-10 p-3 bg-body-tertiary">
+        <div class="col-lg-10 col-12 p-3 bg-body-tertiary">
         
             <div class="container bg-body-secondary mt-4 rounded-2 p-4">
                 <form method="post" id="menteeQuery">
@@ -71,7 +71,7 @@
         
         const message = (msg) => {
 
-            let toast = $("<div></div>").addClass("toastMsg").html(msg);
+            let toast = $("<div></div>").addClass("toastMsg bg-body-secondary").html(msg);
             messageBox.append(toast);
 
             setTimeout(() => {

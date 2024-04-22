@@ -31,17 +31,26 @@
             /* color: #0000ff; */
             background: #7c7c7c;
         }
+        @media (max-width: 1000px) {
+            .custom-width{
+                width: 25% !important;
+            }
+        }
+        .modal-backdrop {
+            position: fixed;
+            z-index: 1000 !important;
+        }
     </style>
 </head>
 <body>
-    <div class="container-fluid flex-column sticky-top">
-    <div class="row flex-nowrap">
-        <div class="bg-dark col-auto  min-vh-100 flex-wrap">
+    <div class="container-fluid flex-column p-0 position-relative">
+    <div id="sideBar" class="row flex-nowrap custom-width offcanvas-lg offcanvas-start flex-shrink-0">
+        <div class="bg-dark col-auto min-vh-100 flex-wrap">
 
             <div class="p-1 h-75">
 
                 <a href="../index.html" class="logo">
-                    <img src="../images/logo.gif" alt="SSGI" class="w-100 my-3 rounded-2">
+                    <img src="../images/logo.gif" alt="SSGI" class="img-fluid my-lg-3 rounded-2">
                 </a>
 
                 <ul class="nav nav-pills flex-column">
@@ -100,13 +109,23 @@
             </div>
         </div>
     </div>
+
+    <div class="bg-dark d-lg-none px-3 py-2 d-inline-block d-flex align-items-center gap-4">
+        <span role="button" class="p-2 bg-danger-subtle rounded-2" data-bs-toggle="offcanvas" data-bs-target="#sideBar">
+            <i class="fa-solid fa-bars fs-4"></i>
+        </span>
+
+        <a href="../index.html" class="logo">
+            <img src="../images/logo.gif" alt="SSGI" class="w-50 rounded-2">
+        </a>
+    </div>
     </div>
 
 
     <!-- Logout Modal -->
 
     <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog position-relative">
             <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5 fw-bold" id="logoutModalLabel">Confirm Logout</h1>
