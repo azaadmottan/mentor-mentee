@@ -3,7 +3,7 @@
     require ("../../partials/connection.php");
         
     $empId = $_POST['empId']; 
-    $password = mysqli_real_escape_string($conn, md5($_POST['mentorPass']));
+    $password = password_hash($_POST['mentorPass'], PASSWORD_BCRYPT);
     
     
     $sql1 = "SELECT * FROM `mentor` WHERE `empId` = '$empId'";

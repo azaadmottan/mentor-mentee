@@ -3,13 +3,12 @@
     require ("../../partials/connection.php");
 
     $email = $_POST['email'];
-    $pass = mysqli_real_escape_string($conn, md5($_POST['pass']));
 
-    $userSql = "SELECT * FROM `mentor` WHERE `email` = ? AND `password` = ?";
+    $userSql = "SELECT * FROM `mentor` WHERE `email` = ?";
 
     $stmt = mysqli_prepare($conn, $userSql);
 
-    mysqli_stmt_bind_param($stmt, "ss", $email, $pass);
+    mysqli_stmt_bind_param($stmt, "s", $email);
 
     mysqli_stmt_execute($stmt);
 
@@ -21,19 +20,26 @@
     {
         $row = mysqli_fetch_assoc($result);
 
-        session_name('teacher_session');
-        session_start();
+        if (password_verify($_POST['pass'], $row['password'])) {
 
-        $_SESSION['teacherLoggedIn'] = true;
-        $_SESSION['teacherUserId'] = $row['email'];
-        $_SESSION['teacherId'] = $row['id'];
-        $_SESSION['teacherName'] = $row['mentorName'];
-        $_SESSION['teacherDepartment'] = $row['department'];
-        $_SESSION['teacherEmpId'] = $row['empId'];
-        $_SESSION['teacherPhone'] = $row['phone'];
-        $_SESSION['teacherAddress'] = $row['address'];
-        
-        echo "logged in";
+            session_name('teacher_session');
+            session_start();
+    
+            $_SESSION['teacherLoggedIn'] = true;
+            $_SESSION['teacherUserId'] = $row['email'];
+            $_SESSION['teacherId'] = $row['id'];
+            $_SESSION['teacherName'] = $row['mentorName'];
+            $_SESSION['teacherDepartment'] = $row['department'];
+            $_SESSION['teacherEmpId'] = $row['empId'];
+            $_SESSION['teacherPhone'] = $row['phone'];
+            $_SESSION['teacherAddress'] = $row['address'];
+            
+            echo "logged in";
+        }
+        else {
+
+            echo "invalid password";
+        }
     }
     else 
     {

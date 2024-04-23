@@ -60,7 +60,7 @@
                 <form method="post" id="updateMentorForm">
                 <div class="row d-flex flex-column flex-md-row p-2 rounded-2">
                     <div class="col">
-                            <input type="text" id="empId" class="form-control border-2 shadow-none fs-5" placeholder="Enter roll number">
+                            <input type="text" id="empId" class="form-control border-2 shadow-none fs-5" placeholder="Enter employee id">
                     </div>
                     <div class="col">
                             <input type="text" id="mentorNewPass" class="form-control border-2 shadow-none fs-5" placeholder="Enter new password">

@@ -89,6 +89,7 @@
             let loggedin = `<img src='../images/check.png'> Success ! You are logged in.`;
             
             let errorInvalidCredentials = `<img src='../images/cancel.png'> Invalid ! Invalid Credentials.`;
+            let errorInvalidPassword = `<img src='../images/cancel.png'> Invalid ! Wrong Password.`;
 
             const message = (msg) => {
 
@@ -126,6 +127,10 @@
 
                                 $("#loginForm").trigger("reset");
                                 window.location.href = "../studentDashboard/stud_welcome.php";
+                            }
+                            else if (data === "invalid password") {
+
+                                message(errorInvalidPassword);
                             }
                             else if (data == "invalid credentials") {
                                 

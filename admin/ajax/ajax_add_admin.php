@@ -7,7 +7,7 @@
     $phone = $_POST['phone'];
     $email = $_POST['email'];
     $address = $_POST['address'];
-    $password = mysqli_real_escape_string($conn, md5($_POST['password']));
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
 
     $userSql = "SELECT * FROM `admin` WHERE `email` = ? OR `empId` = ?";

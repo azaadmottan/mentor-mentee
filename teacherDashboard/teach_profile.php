@@ -163,7 +163,7 @@
 
         const message = (msg) => {
 
-            let toast = $("<div></div>").addClass("toastMsg").html(msg);
+            let toast = $("<div></div>").addClass("toastMsg bg-body-secondary").html(msg);
             messageBox.append(toast);
 
             setTimeout(() => {

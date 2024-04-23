@@ -89,6 +89,7 @@
             let loggedin = `<img src='../images/check.png'> Success ! You are logged in.`;
             
             let errorInvalidCredentials = `<img src='../images/cancel.png'> Invalid ! Invalid Credentials.`;
+            let errorInvalidPassword = `<img src='../images/cancel.png'> Invalid ! Wrong Password.`;
 
             const message = (msg) => {
 
@@ -124,6 +125,10 @@
                             if (data == "invalid credentials") {
 
                                 message(errorInvalidCredentials)
+                            }
+                            else if (data === "invalid password") {
+
+                                message(errorInvalidPassword);
                             }
 
                             if (data == "logged in") {

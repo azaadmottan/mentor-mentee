@@ -181,7 +181,7 @@
 
             <form method="post" id="studUPF">
             <div class="modal-body fw-medium">
-                <div class="row d-flex flex-column flex-md-row p-2 bg-light rounded-2">
+                <div class="row d-flex flex-column flex-md-row p-2 bg-dark-subtle rounded-2">
                     <div class="col fw-medium fs-6">
                         Password: <input type="text" id="studUPass" class="form-control shadow-none" autocomplete="off" required >
                     </div>
@@ -222,7 +222,7 @@
 
         const message = (msg) => {
 
-            let toast = $("<div></div>").addClass("toastMsg").html(msg);
+            let toast = $("<div></div>").addClass("toastMsg bg-body-secondary").html(msg);
             messageBox.append(toast);
 
             setTimeout(() => {

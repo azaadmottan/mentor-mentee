@@ -5,7 +5,7 @@
     session_name('student_session');
     session_start();
 
-    $password = mysqli_real_escape_string($conn, md5($_POST['cPassword']));
+    $password = password_hash($_POST['cPassword'], PASSWORD_BCRYPT);
 
     $email = $_SESSION['studentUserId'];
 

@@ -3,14 +3,12 @@
     require ("../../partials/connection.php");
 
     $email = $_POST['email'];
-    $pass = mysqli_real_escape_string($conn, md5($_POST['pass']));
-    // $pass = $_POST['pass'];
 
-    $userSql = "SELECT * FROM `admin` WHERE `email` = ? AND `password` = ?";
+    $userSql = "SELECT * FROM `admin` WHERE `email` = ?";
 
     $stmt1 = mysqli_prepare($conn, $userSql);
 
-    mysqli_stmt_bind_param($stmt1, "ss", $email, $pass);
+    mysqli_stmt_bind_param($stmt1, "s", $email);
 
     mysqli_stmt_execute($stmt1);
 
@@ -22,17 +20,24 @@
         
         $row = mysqli_fetch_assoc($result);
         
-        session_name('admin_session');
-        session_start();
+        if (password_verify($_POST['pass'], $row['password'])) {
 
-        $_SESSION['adminLoggedIn'] = true;
-        $_SESSION['adminUserId'] = $row['email'];
-        $_SESSION['adminName'] = $row['adminName'];
-        $_SESSION['adminEmpId'] = $row['empId'];
-        $_SESSION['adminPhone'] = $row['phone'];
-        $_SESSION['adminAddress'] = $row['address'];
-        
-        echo "logged in";
+            session_name('admin_session');
+            session_start();
+    
+            $_SESSION['adminLoggedIn'] = true;
+            $_SESSION['adminUserId'] = $row['email'];
+            $_SESSION['adminName'] = $row['adminName'];
+            $_SESSION['adminEmpId'] = $row['empId'];
+            $_SESSION['adminPhone'] = $row['phone'];
+            $_SESSION['adminAddress'] = $row['address'];
+            
+            echo "logged in";
+        }
+        else {
+            
+            echo "invalid password";
+        }
     }
     else {
 

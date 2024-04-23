@@ -6,7 +6,7 @@
     session_start();
 
     $email = $_SESSION['adminUserId'];
-    $password = mysqli_real_escape_string($conn, md5($_POST['cPassword']));
+    $password = password_hash($_POST['cPassword'], PASSWORD_BCRYPT);
 
     $sql = "UPDATE `admin` SET `password` = '$password' WHERE `email` = '$email'";
 

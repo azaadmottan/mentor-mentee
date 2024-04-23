@@ -3,7 +3,7 @@
     require ("../../partials/connection.php");
         
     $rollNo = $_POST['rollNo']; 
-    $password = mysqli_real_escape_string($conn, md5($_POST['menteePass']));
+    $password = password_hash($_POST['menteePass'], PASSWORD_BCRYPT);
     
     
     $sql1 = "SELECT * FROM `mentee` WHERE `rollNo` = $rollNo";

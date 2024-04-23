@@ -14,7 +14,7 @@
     $fatherPhone = $_POST['fatherPhone'];
     $fatherProfession = $_POST['fatherProfession'];
     $address = $_POST['address'];
-    $password = mysqli_real_escape_string($conn, md5($_POST['password']));
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
 
     // prepare the SQL statement with placeholders
