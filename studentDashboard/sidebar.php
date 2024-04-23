@@ -159,6 +159,74 @@
                 localStorage.setItem("menteeThemeMode", toggleTheme);
                 $("body").attr("data-bs-theme", toggleTheme);
             });
+
+            // implementing session timeout feature for security reasons
+
+            // set the session timeout
+            let sessionTimeout = 7200;  // 2 hours
+
+            // set idle session timeout
+            let idleTimeout = 900;  // 15 minutes
+
+            // let idleTimeout = 60;  // 1 minutes
+
+            let lastActiveTime = Date.now();
+
+            function checkIdleTimeout() {
+                
+                let currentTime = Date.now();
+                let idleTime = (currentTime - lastActiveTime) / 1000;
+                
+                if (idleTime > idleTimeout) {
+
+                    $.ajax({
+                        url: "./stud_logout.php",
+            
+                        success: function(response) {
+                            
+                            if (response === "logout success") {
+
+                                window.location.href = "../login/students.php?s=sessionExpired";
+                            }
+                        }
+                    });
+                }
+                else {
+                    // check after every 5 minutes application is idle or in working state
+                    setTimeout(checkIdleTimeout, 300000);
+
+                    // check after every 1 second application is idle or in working state
+                    // setTimeout(checkIdleTimeout, 1000);
+                }
+            }
+
+            function resetIdleTime() {
+                lastActiveTime = Date.now();
+            }
+
+            // reset the idle timeout
+            $(document).on("mousemove keydown", resetIdleTime);
+
+            // initialize the session timeout
+            function initializeSessionTimeout() {
+
+                setTimeout(() => {
+                    $.ajax({
+                        url: "./stud_logout.php",
+            
+                        success: function(response) {
+                            
+                            if (response === "logout success") {
+
+                                window.location.href = "../login/students.php?s=sessionExpired";
+                            }
+                        }
+                    });
+                }, sessionTimeout * 1000);
+            }
+
+            initializeSessionTimeout();
+            checkIdleTimeout();
         });
     </script>
 </body>

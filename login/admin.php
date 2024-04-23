@@ -57,7 +57,26 @@
         </div>
     </div>
 
+    <!-- Session Expired Modal -->
+    <div class="modal fade" id="sessionExpiredModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="sessionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5 fw-bolder" id="sessionModalLabel">Session Expired</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body fw-medium">
+            Session has been expired, Please login again !
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
     <script src="../js/portal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="../js/jQuery/code.jquery.com_jquery-3.7.0.min.js"></script>
     
 
@@ -118,6 +137,16 @@
                 }
 
             });
+
+            let urlParams = new URLSearchParams(window.location.search);
+
+            let sessionExpired = urlParams.get("s");
+
+            if (sessionExpired === "sessionExpired") {
+
+                $("#sessionExpiredModal").modal("show");
+            }
+
         });
     </script>
 </body>
