@@ -10,10 +10,19 @@
     $password = mysqli_real_escape_string($conn, md5($_POST['password']));
 
 
-    $userSql = "SELECT * FROM `admin` WHERE `email` = '$email' OR `empId` = '$empId'";
+    $userSql = "SELECT * FROM `admin` WHERE `email` = ? OR `empId` = ?";
 
-    $resultExist = mysqli_query($conn, $userSql);
-    $rowExist = mysqli_num_rows($resultExist);
+    $stmt1 = mysqli_prepare($conn, $userSql);
+
+    mysqli_stmt_bind_param($stmt1, "ss", $email, $pass);
+
+    mysqli_stmt_execute($stmt1);
+
+    $result = mysqli_stmt_get_result($stmt1);
+
+    $rowExist = mysqli_num_rows($result);
+
+    mysqli_stmt_close($stmt1);
 
     if ($rowExist > 0) {
 
@@ -21,9 +30,15 @@
     }
     else {
         
-        $sql = "INSERT INTO `admin` (`adminName`, `empId`, `phone`, `email`, `address`, `password`) VALUES ('$name', '$empId', '$phone', '$email', '$address', '$password')";
-    
-        if (mysqli_query($conn, $sql) == true) {
+        $sql = "INSERT INTO `admin` (`adminName`, `empId`, `phone`, `email`, `address`, `password`) VALUES (?, ?, ?, ?, ?, ?)";
+
+        $stmt2 = mysqli_prepare($conn, $sql);
+
+        mysqli_stmt_bind_param($stmt2, "ssssss", $name, $empId, $phone, $email, $address, $password);
+
+        mysqli_stmt_execute($stmt2);
+
+        if (mysqli_stmt_affected_rows($stmt2) > 0) {
 
             echo "success";        
         }
@@ -32,4 +47,7 @@
             echo "error";
         }
     }
+
+    mysqli_stmt_close($stmt2);
+    mysqli_close($conn);
 ?>

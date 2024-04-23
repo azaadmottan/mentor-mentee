@@ -22,7 +22,7 @@
             
             <form method="post">
             <div class="modal-body fw-medium">
-                <div class="row d-flex flex-column flex-md-row p-2 bg-light rounded-2">
+                <div class="row d-flex flex-column flex-md-row p-2 bg-dark-subtle rounded-2">
                     <div class="col fw-medium fs-6">
                         Name: <input type="text" id="name" class="form-control shadow-none" placeholder="Enter name" required >
                     </div>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                     <div class="col fw-medium fs-6">
                         Email: <input type="email" id="email" class="form-control shadow-none" placeholder="Enter email-id" required >
                     </div>
@@ -40,12 +40,12 @@
                     </div>
                 </div>
 
-                <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                     <div class="col fw-medium fs-6">
                         Address: <input type="text" id="address" class="form-control shadow-none" placeholder="Enter address" required >
                     </div>
                 </div>
-                <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-light rounded-2">
+                <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
                     <div class="col fw-medium fs-6">
                         Password: <input type="text" id="password" class="form-control shadow-none" placeholder="Create password" required >
                     </div>
@@ -128,7 +128,7 @@
 
         const message = (msg) => {
 
-            let toast = $("<div></div>").addClass("toastMsg").html(msg);
+            let toast = $("<div></div>").addClass("toastMsg bg-body-secondary").html(msg);
             messageBox.append(toast);
 
             setTimeout(() => {
