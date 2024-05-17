@@ -95,7 +95,7 @@
                         <h4 class="text-center">Admins</h4>
                     </div>
 
-                    <div id="adminsRecord" class="overflow-scroll"></div>
+                    <div id="adminsRecord" class="overflow-y-auto overflow-x-auto"></div>
 
                 </div>
 

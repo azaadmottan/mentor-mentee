@@ -93,7 +93,7 @@
                         </div>
                     </div>
 
-                    <div id="mentorsRecord" class="overflow-scroll"></div>
+                    <div id="mentorsRecord" class="overflow-x-auto overflow-y-auto" style="height: 345px;"></div>
 
                 </div>
 
@@ -125,7 +125,7 @@
                 </div>
 
                 <div class="bg-dark-subtle p-4 rounded-2">
-                    <div class="row" id="newEmpIdRecord">
+                    <div class="row overflow-y-auto overflow-x-auto" style="height: 345px;" id="newEmpIdRecord">
 
                     </div>
                 </div>

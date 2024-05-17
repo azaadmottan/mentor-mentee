@@ -1,4 +1,8 @@
 <?php
+    require ("../restrictAjaxAccess.php");
+
+    restrictAjaxAccess();
+
     require ("../../partials/connection.php");
 
     session_name('teacher_session');

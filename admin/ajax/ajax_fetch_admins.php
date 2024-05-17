@@ -1,4 +1,7 @@
 <?php
+    require ("../restrictAjaxAccess.php");
+
+    restrictAjaxAccess();
 
     require ("../../partials/connection.php");
 

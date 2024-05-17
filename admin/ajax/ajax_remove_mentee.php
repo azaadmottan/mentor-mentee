@@ -1,5 +1,8 @@
 <?php
+    require ("../restrictAjaxAccess.php");
 
+    restrictAjaxAccess();
+    
     require ("../../partials/connection.php");
     
     $rollNo = $_POST['rollNumber'];

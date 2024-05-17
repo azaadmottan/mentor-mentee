@@ -1,5 +1,9 @@
 <?php
     error_reporting(0);
+    require ("../restrictAjaxAccess.php");
+
+    restrictAjaxAccess();
+    
     require ("../../partials/connection.php");
 
     $empId = $_POST['empId'];

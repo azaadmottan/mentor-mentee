@@ -118,7 +118,7 @@
                         </div>
                     </div>
 
-                    <div id="menteesRecord" class="overflow-scroll"></div>
+                    <div id="menteesRecord" class="overflow-y-auto overflow-x-auto" style="height: 345px;"></div>
 
                 </div>
 
