@@ -5,16 +5,22 @@
     
     require ("../../partials/connection.php");
     
-    $empId = $_POST['empId'];
+    session_name('admin_session');
+    session_start();
+
+    if (isset($_SESSION['session_token'])) {
+
+        $empId = $_POST['empId'];
+        
+        $sql = "DELETE FROM `mentor` WHERE `empId` = '$empId'";
     
-    $sql = "DELETE FROM `mentor` WHERE `empId` = '$empId'";
-
-    if (mysqli_query($conn, $sql)) {
-
-        echo "remove mentor";
-    }
-    else {
-
-        echo "failed to remove";
+        if (mysqli_query($conn, $sql)) {
+    
+            echo "remove mentor";
+        }
+        else {
+    
+            echo "failed to remove";
+        }
     }
 ?>

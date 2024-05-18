@@ -48,7 +48,7 @@
                         <h3 class="text-center">Your Query</h3>
                     </div>
 
-                    <div id="menteeQueries" class="p-3">
+                    <div id="menteeQueries" class="overflow-x-auto overflow-y-auto" style="height: 600px">
                     </div>
 
                 </div>

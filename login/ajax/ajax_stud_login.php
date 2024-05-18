@@ -25,6 +25,7 @@
             session_name('student_session');
             session_start();
     
+            $_SESSION['session_token'] = bin2hex(random_bytes(32));
             $_SESSION['studentLoggedIn'] = true;
             $_SESSION['studentName'] = $row['menteeName'];
             $_SESSION['studentId'] = $row['id'];

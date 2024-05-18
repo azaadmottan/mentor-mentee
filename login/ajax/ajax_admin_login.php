@@ -24,7 +24,8 @@
 
             session_name('admin_session');
             session_start();
-    
+            
+            $_SESSION['session_token'] = bin2hex(random_bytes(32));
             $_SESSION['adminLoggedIn'] = true;
             $_SESSION['adminUserId'] = $row['email'];
             $_SESSION['adminName'] = $row['adminName'];

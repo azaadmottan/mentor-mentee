@@ -8,26 +8,29 @@
     session_name('admin_session');
     session_start();
 
-    $_SESSION['adminName'] = $name = $_POST['name'];
-    $_SESSION['adminEmpId'] = $empId = $_POST['empId'];
-    $_SESSION['adminEmail'] = $email = $_POST['email'];
-    $_SESSION['adminPhone'] = $phone = $_POST['phone'];
-    $_SESSION['adminAddress'] = $address = $_POST['address'];
+    if (isset($_SESSION['session_token'])) {
 
-    $sql = "UPDATE `admin` SET `adminName` = '$name', `empId` = '$empId', `email` = '$email', `phone` = '$phone', `address` = '$address'  WHERE `email` = '$email'";
-
-    $result = mysqli_query($conn, $sql);
+        $_SESSION['adminName'] = $name = $_POST['name'];
+        $_SESSION['adminEmpId'] = $empId = $_POST['empId'];
+        $_SESSION['adminEmail'] = $email = $_POST['email'];
+        $_SESSION['adminPhone'] = $phone = $_POST['phone'];
+        $_SESSION['adminAddress'] = $address = $_POST['address'];
     
-    $row = mysqli_affected_rows($conn);
-
-
-    if ($row == 1) {
-
-        echo "success";
-    }
-    else {
+        $sql = "UPDATE `admin` SET `adminName` = '$name', `empId` = '$empId', `email` = '$email', `phone` = '$phone', `address` = '$address'  WHERE `email` = '$email'";
+    
+        $result = mysqli_query($conn, $sql);
         
-        echo "fail";
+        $row = mysqli_affected_rows($conn);
+    
+    
+        if ($row == 1) {
+    
+            echo "success";
+        }
+        else {
+            
+            echo "fail";
+        }
     }
 
 ?>

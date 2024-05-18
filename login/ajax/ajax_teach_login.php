@@ -25,6 +25,7 @@
             session_name('teacher_session');
             session_start();
     
+            $_SESSION['session_token'] = bin2hex(random_bytes(32));
             $_SESSION['teacherLoggedIn'] = true;
             $_SESSION['teacherUserId'] = $row['email'];
             $_SESSION['teacherId'] = $row['id'];

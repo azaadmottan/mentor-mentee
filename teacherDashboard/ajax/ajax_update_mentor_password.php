@@ -8,23 +8,26 @@
     session_name('teacher_session');
     session_start();
 
-    $email = $_SESSION['teacherUserId'];
-    $password = password_hash($_POST['cPassword'], PASSWORD_BCRYPT);
+    if (isset($_SESSION['session_token'])) {
 
-    $sql = "UPDATE `mentor` SET `password` = '$password' WHERE `email` = '$email'";
-
-    $result = mysqli_query($conn, $sql);
+        $email = $_SESSION['teacherUserId'];
+        $password = password_hash($_POST['cPassword'], PASSWORD_BCRYPT);
     
-    $row = mysqli_affected_rows($conn);
-
-
-    if ($row == 1) {
-
-        echo "success";
-    }
-    else {
+        $sql = "UPDATE `mentor` SET `password` = '$password' WHERE `email` = '$email'";
+    
+        $result = mysqli_query($conn, $sql);
         
-        echo "fail";
+        $row = mysqli_affected_rows($conn);
+    
+    
+        if ($row == 1) {
+    
+            echo "success";
+        }
+        else {
+            
+            echo "fail";
+        }
     }
 
 ?>

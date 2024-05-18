@@ -5,19 +5,23 @@
     
     require ("../../partials/connection.php");
 
-    $rollNo = $_POST['rollNumber'];
+    session_name('teacher_session');
+    session_start();
 
-    $sql = "UPDATE `mentee` SET `mentor` = 'null' WHERE `rollNo` = '$rollNo'";
+    if (isset($_SESSION['session_token'])) {
+
+        $rollNo = $_POST['rollNumber'];
     
-    if (mysqli_query($conn, $sql)) {
-
-        echo "remove mentee";
+        $sql = "UPDATE `mentee` SET `mentor` = 'null' WHERE `rollNo` = '$rollNo'";
+        
+        if (mysqli_query($conn, $sql)) {
+    
+            echo "remove mentee";
+        }
+        else {
+    
+            echo "failed to remove";
+        }
     }
-    else {
-
-        echo "failed to remove";
-    }
-
-
 
 ?>

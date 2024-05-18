@@ -48,7 +48,7 @@
                         </div>
                     </div>
 
-                    <div id="menteeQueries"></div>
+                    <div id="menteeQueries" class="overflow-x-auto overflow-y-auto" style="height: 600px"></div>
 
                 </div>
 

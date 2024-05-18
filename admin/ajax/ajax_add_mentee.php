@@ -5,24 +5,24 @@
     
     require ("../../partials/connection.php");
 
-    session_name('teacher_session');
+    session_name('admin_session');
     session_start();
 
-    $teacherName = $_SESSION['teacherName'];
+    if (isset($_SESSION['session_token'])) {
 
-    $rollNo = $_POST['rollNumber'];
-
-    $sql = "UPDATE `mentee` SET `mentor` = '$teacherName' WHERE `rollNo` = '$rollNo'";
+        $teacherName = $_SESSION['teacherName'];
     
-    if (mysqli_query($conn, $sql)) {
-
-        echo "add mentee";
+        $rollNo = $_POST['rollNumber'];
+    
+        $sql = "UPDATE `mentee` SET `mentor` = '$teacherName' WHERE `rollNo` = '$rollNo'";
+        
+        if (mysqli_query($conn, $sql)) {
+    
+            echo "add mentee";
+        }
+        else {
+    
+            echo "failed to add";
+        }
     }
-    else {
-
-        echo "failed to add";
-    }
-
-
-
 ?>

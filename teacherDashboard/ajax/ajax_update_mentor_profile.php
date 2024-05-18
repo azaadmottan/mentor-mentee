@@ -8,25 +8,28 @@
     session_name('teacher_session');
     session_start();
 
-    $email = $_SESSION['teacherUserId'];
-    $_SESSION['teacherName'] = $name = $_POST['name'];
-    $_SESSION['teacherPhone'] = $phone = $_POST['phone'];
-    $_SESSION['teacherAddress'] = $address = $_POST['address'];
+    if (isset($_SESSION['session_token'])) {
 
-    $sql = "UPDATE `mentor` SET `mentorName` = '$name', `phone` = '$phone', `address` = '$address'  WHERE `email` = '$email'";
-
-    $result = mysqli_query($conn, $sql);
+        $email = $_SESSION['teacherUserId'];
+        $_SESSION['teacherName'] = $name = $_POST['name'];
+        $_SESSION['teacherPhone'] = $phone = $_POST['phone'];
+        $_SESSION['teacherAddress'] = $address = $_POST['address'];
     
-    $row = mysqli_affected_rows($conn);
-
-
-    if ($row == 1) {
-
-        echo "success";
-    }
-    else {
+        $sql = "UPDATE `mentor` SET `mentorName` = '$name', `phone` = '$phone', `address` = '$address'  WHERE `email` = '$email'";
+    
+        $result = mysqli_query($conn, $sql);
         
-        echo "fail";
+        $row = mysqli_affected_rows($conn);
+    
+    
+        if ($row == 1) {
+    
+            echo "success";
+        }
+        else {
+            
+            echo "fail";
+        }
     }
 
 ?>
