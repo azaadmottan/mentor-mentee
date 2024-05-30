@@ -19,40 +19,65 @@
     <link rel="shortcut icon" href="../images/ssgi_favicon.jpg" type="image/x-icon">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/portals.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="../css/message.css">
+    <style>
+        body {
+            background-color: #000022;
+        }
+        .main-container {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
 
     <div id="messageBox"></div>
 
-    <div class="container">
-        <div class="box">
-            <div class="col col-1">
-                <figure>
+    <div class="main-container bg-dak d-flex align-items-center justify-content-center">
+        <div class="container bg-gradient d-flex flex-md-row flex-column align-items-center rounded-3 p-md-4">
+
+            <div class="col-12 col-md-6 mt-5 mt-md-0 p-5 p-md-0">
+                <img src="../images/loginpageimg.png" style="width: 100%;" alt="student logo" class="img-fluid">
+            </div>
+
+            <div class="col-12 col-md-6 px-1 py-4 p-md-0 d-flex align-items-center justify-content-center flex-column">
+                <figure class="mb-2 mt--2">
                     <a href="../index.html">
-                        <img src="../images/logo.gif" alt="SSGI" class="rounded-3">
+                        <img src="../images/logo.gif" alt="SSGI (srisaigroup.in)" class="rounded-3">
                     </a>
                 </figure>
-            </div>
-            <div class="col col-2">
-                <form id="loginForm">
-                    <h2>Sign In</h2>
-                    <div class="inputfield">
-                        <input type="text" id="email" required><span>Username</span>
+                <form action="#" method="POST" class="col-12 col-md-10">
+                    <h2 class="my-4 fs-1 fw-medium text-white">Sign In</h2>
+
+                    <!-- username or email-address field -->
+                    <div class="form-outline mb-3">
+                        <label class="form-label fs-5 fw-semibold text-white">Email address</label>
+                        <input type="email" id="email" class="form-control shadow-none" placeholder="Enter username or email address" />
                     </div>
-                    <div class="inputfield">
-                        <input type="password" id="pass" required><span>Password</span><img src="../images/eye.png" onclick="showPass()" id="eye"><img src="../images/eye_slash.png" onclick="showPass()" id="eye_slash">
+
+                    <!-- password field -->
+                    <div class="form-outline mb-5">
+                        <label class="form-label fs-5 fw-semibold text-white" >Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control shadow-none" placeholder="Enter your password" id="pass" />
+                            <span class="input-group-text" id="togglePassword" type="button">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
                     </div>
-                    <div class="links">
-                        <p>Dont't have an account <a href="../register/teach_register.php">SignUp</a> </p>
+                    <div class="links text-white">
+                        <p>Dont't have an account <a href="../register/teach_register.php">SignUp</a></p>
                     </div>
                     
-                    <div class="inputfield sbmtBtn">
-                        <input type="submit" id="login" value="Login">
+                    <div>
+                        <input type="submit" id="login" class="btn btn-primary fs-5 w-100" value="Login">
                     </div>
                 </form>
             </div>
+
         </div>
     </div>
     
@@ -79,6 +104,19 @@
     <script src="../js/jQuery/code.jquery.com_jquery-3.7.0.min.js"></script>
 
     <script>
+
+        document.getElementById('togglePassword').addEventListener('click', function (e) {
+            // Toggle the type attribute using getAttribute() and setAttribute()
+            const passwordInput = document.getElementById('pass');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            
+            passwordInput.setAttribute('type', type);
+            
+            // Toggle the eye icon
+            this.querySelector('i').classList.toggle('fa-eye');
+            this.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+
         $(document).ready(function() {
 
             let messageBox = $("#messageBox");
