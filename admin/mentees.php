@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="../images/ssgi_favicon.jpg" type="image/x-icon">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/message.css">
 
 </head>
 <body>
@@ -127,6 +128,7 @@
     </div>
 
     <script src="../js/jQuery/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script src="../js/Message.js"></script>
 
     <script>
     $(document).ready(function(){   
@@ -195,11 +197,14 @@
 
                 success: function(response){
                     
-                    if (response == "remove mentee") 
-                    {
-                        $(element).closest("tr").fadeOut();
+                    if (response == "remove mentee") {
 
+                        $(element).closest("tr").fadeOut();
                         getMentees();
+                        message("success", "Mentee removed successfully");
+                    }
+                    else {
+                        message("error", "Something went wrong");
                     }
                 }
             });

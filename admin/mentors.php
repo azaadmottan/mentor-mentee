@@ -136,29 +136,10 @@
     </div>
 
     <script src="../js/jQuery/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script src="../js/Message.js"></script>
 
     <script>
     $(document).ready(function(){   
-
-        let messageBox = $("#messageBox");
-        
-        let successAddUser = `<img src='../images/check.png'> Success ! Add User Successfully.`;
-        let successDeleteUser = `<img src='../images/check.png'> Success ! Delete User Successfully.`;
-
-        let errorField = `<img src='../images/cancel.png'> Error ! All fields are required.`;
-        let errorUserExist = `<img src='../images/cancel.png'> Error ! User already Exist.`;
-        let errorDeleteUser = `<img src='../images/cancel.png'> Error ! Failed to Remove User.`;
-        let errorDelete = `<img src='../images/cancel.png'> Error ! Something went wrong.`;
-
-        const message = (msg) => {
-
-            let toast = $("<div></div>").addClass("toastMsg bg-body-secondary").html(msg);
-            messageBox.append(toast);
-
-            setTimeout(() => {
-                toast.remove();
-            }, 5000);
-        };
 
         // fetch all the mentors
 
@@ -223,20 +204,18 @@
                     success: function(response) {
 
                         if (response == "remove mentor") {
-    
-                            message(successDeleteUser);
                             $(element).closest("tr").fadeOut();
                             getMentors();
+                            message("success", "Mentor removed successfully");
                         }
                         else {
-
-                            message(errorDeleteUser);
+                            message("error", "Failed to remove mentor");
                         }
                     },
                 });
             } catch (error) {
                 
-                message(errorDelete);
+                message("error", "Something went wrong");
             }
 
         });
@@ -270,7 +249,7 @@
 
             if (empId === "" || empName === "") {
 
-                message(errorField);
+                message("error", "All fields are required");
                 return;
             }else {
 
@@ -282,14 +261,12 @@
                     success: function(response){
                         
                         if (response == "user exist") {
-
-                            message(errorUserExist);
+                            message("error", "Employee already exists");
                         }
                         else {
-                            
-                            message(successAddUser);
                             $('#newEmpIdForm').trigger("reset");
                             fetchEmployeeId();
+                            message("success", "Employee has been added successfully");
                         }
                     }
                 });

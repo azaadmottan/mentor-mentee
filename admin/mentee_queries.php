@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="../images/ssgi_favicon.jpg" type="image/x-icon">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/message.css">
 
 </head>
 <body>
@@ -57,6 +58,7 @@
     </div>
 
     <script src="../js/jQuery/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script src="../js/Message.js"></script>
 
     <script>
     $(document).ready(function(){   
@@ -104,6 +106,10 @@
                     if  (response == "success") {
 
                         getQueries();
+                        message("success", "Status of query has been updated");
+                    }
+                    else {
+                        message("error", "Failed to update query status");
                     }
                 }
             });
@@ -127,6 +133,10 @@
                     if  (response == "remove query") {
 
                         getQueries();
+                        message("success", "Query removed successfully");
+                    }
+                    else {
+                        message("error", "Failed to remove query");
                     }
                 }
             });

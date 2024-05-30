@@ -130,41 +130,6 @@
 
         $(document).ready(function() {
 
-            let messageBox = $("#messageBox");
-            
-            let selectfile = `<img src='../images/cancel.png'> Error ! Please choose profile picture.`;
-            let reloadPage = `<img src='../images/alert.png'> Alert ! Please reload page to update profile.`;
-            let errorFileUpload = `<img src='../images/cancel.png'> Error ! Failed to upload file.`;
-            let successFileUploaded = `<img src='../images/check.png'> Success ! File Uploaded Successfully.`;
-
-            const message = (msg) => {
-
-                let toast = $("<div></div>").addClass("toast bg-body-secondary").html(msg);
-                messageBox.append(toast);
-
-                setTimeout(() => {
-                    toast.remove();
-                }, 5000);
-            };
-
-            const updateProfile = () => {
-
-                let imagePath = $("#imagePath").val();
-
-                let imgUrl = './assignments/' + imagePath; 
-
-                if (imagePath === "none") {
-
-                    $("#profile_picture").html(`<img src = './assignments/profile-picture.png' alt = 'Profile Picture' >`)
-                }
-                else {
-
-                    $("#profile_picture").html(`<img src = '${imgUrl}' alt = 'Profile Picture' >`)
-                }
-            }
-
-            updateProfile();
-            
             // upload the file
 
             $('#imgUploadForm').submit(function(e) {

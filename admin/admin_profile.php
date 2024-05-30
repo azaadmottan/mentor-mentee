@@ -143,33 +143,10 @@
     </div>
 
     <script src="../js/jQuery/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script src="../js/Message.js"></script>
 
     <script>
-    $(document).ready(function(){ 
-        
-        let messageBox = $("#messageBox");
-            let errorField = `<img src='../images/cancel.png'> Error ! All fields are required.`;
-            let successAddStudent = `<img src='../images/check.png'> Success ! Add Student Successfully.`;
-            let successProfileUpdate = `<img src='../images/check.png'> Success ! Profile Update Successfully.`;
-            let successPasswordUpdate = `<img src='../images/check.png'> Success ! Password Update Successfully.`;
-            let successDelete = `<img src='../images/check.png'> Success ! Delete Student Data Successfully.`;
-            let errorUserExist = `<img src='../images/cancel.png'> Error ! User already Exist.`;
-            let errorRegister = `<img src='../images/cancel.png'> Error ! Failed to inserted data.`;
-            let errorUpdateProfile = `<img src='../images/cancel.png'> Error ! Failed to Update Profile.`;
-            let errorUpdatePassword = `<img src='../images/cancel.png'> Error ! Failed to Update Profile.`;
-            let errorDelete = `<img src='../images/cancel.png'> Error ! Failed to Delete data.`;
-            let errorPass = `<img src='../images/cancel.png'> Error ! Password doesn't match.`;
-            let invalidEmail = `<img src='../images/alert.png'> Invalid ! Invalid email address.`;
-
-            const message = (msg) => {
-
-                let toast = $("<div></div>").addClass("toastMsg bg-body-secondary").html(msg);
-                messageBox.append(toast);
-
-                setTimeout(() => {
-                    toast.remove();
-                }, 5000);
-            };
+    $(document).ready(function(){
 
         // fetch Admin Profile Data
 
@@ -195,8 +172,6 @@
                     $("#editAdminPhone").val(responseData.adminPhone);
                     $("#editAdminEmail").val(responseData.adminEmail);
                     $("#editAdminAddress").val(responseData.adminAddress);
-
-                    
                 }
             });
         }
@@ -218,7 +193,7 @@
             
             if (name === "" || empId === "" || email === "" || phone === "" || address === "") {
                 
-                message(errorField);
+                message("error", "All fields are required");
                 return;
             }
             else {
@@ -233,21 +208,21 @@
                         
                         if (response == "success") {
 
-                            message(successProfileUpdate);
+                            message("success", "Profile updated successfully");
 
                             $("#editProfileModal").modal("hide");
                             getAdminProfileData();
                         } 
                         else {   
 
-                            message(errorUpdateProfile);
+                            message("error", "Something went wrong while updating profile");
                         }
                     }
                 });
             }
         });
 
-            // Update Admin Password
+        // Update Admin Password
 
         $("#updateAdminPassword").on("click", function(e) {
 
@@ -258,7 +233,7 @@
 
             if (uPassword === "" || cPassword === "") {
 
-                message(errorField);
+                message("error", "All fields are required");
                 return;
             }
             else {
@@ -277,17 +252,17 @@
                                 
                                 $("#updateAdminPasswordModal").modal("hide");
                                 $("#adminUPForm").trigger("reset");
-                                message(successPasswordUpdate);
+                                message("success", "Password has been updated successfully");
                             } 
                             else {       
-                                message(errorUpdatePassword);
+                                message("error", "Failed to update password");
                             }
                         }
                     }); 
                 }
                 else {
 
-                    message(errorPass);
+                    message("error", "Something went wrong !");
                 }
             }
         });

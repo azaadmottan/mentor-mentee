@@ -82,30 +82,10 @@
     </div>
 
     <script src="../js/jQuery/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script src="../js/Message.js"></script>
 
     <script>
     $(document).ready(function(){   
-
-        let messageBox = $("#messageBox");
-
-        let successPassword = `<img src='../images/check.png'> Success ! Password update successfully.`;
-        
-        let rollNoError = `<img src='../images/cancel.png'> Error ! Roll number doesn't exist.`;
-        let empIdError = `<img src='../images/cancel.png'> Error ! Employee Id doesn't exist.`;
-        let errorField = `<img src='../images/cancel.png'> Error ! All fields are required.`;
-        let errorPassLen = `<img src='../images/cancel.png'> Error ! Password must be at least  8 characters long.`;
-        let error = `<img src='../images/cancel.png'> Error ! Something went wrong while update password.`;
-        
-        const message = (msg) => {
-
-            let toast = $("<div></div>").addClass("toastMsg bg-body-secondary").html(msg);
-            messageBox.append(toast);
-
-            setTimeout(() => {
-
-                toast.remove();
-            }, 5000);
-        };
 
         // update mentee password
 
@@ -118,14 +98,14 @@
 
             if (rollNo === "" || menteePass === "") {
 
-                message(errorField);
+                message("error", "All fields are required");
                 return;
             }
             else {
 
                 if (menteePass.length < 8) {
 
-                    message(errorPassLen);
+                    message("alert", "Passwords must be at least 8 characters long");
                     return;
                 }
                 $.ajax({
@@ -138,15 +118,15 @@
                         if (response == "success") {
 
                             $("#updateMenteeForm").trigger("reset");
-                            message(successPassword);
+                            message("success", "Passwords updated successfully");
                         }
                         else if (response == "roll number not exist") {
 
-                            message(rollNoError);
+                            message("error", "Please enter a valid roll number");
                         }
                         else {
     
-                            message(error);
+                            message("error", "Something went wrong");
                         }
                     }
                 });
@@ -165,14 +145,14 @@
 
             if (empId === "" || mentorPass === "") {
 
-                message(errorField);
+                message("error", "All fields are required");
                 return;
             }
             else {
 
                 if (mentorPass.length < 8) {
 
-                    message(errorPassLen);
+                    message("alert", "Passwords must be at least 8 characters long");
                     return;
                 }
                 $.ajax({
@@ -185,15 +165,15 @@
                         if (response == "success") {
 
                             $("#updateMentorForm").trigger("reset");
-                            message(successPassword);
+                            message("success", "Password updated successfully");
                         }
                         else if (response == "employee id not exist") {
 
-                            message(empIdError);
+                            message("error", "Employee id not exist");
                         }
                         else {
     
-                            message(error);
+                            message("error", "Something went wrong");
                         }
                     }
                 });

@@ -3,7 +3,7 @@
 
 #messageBox {
     position: fixed;
-    top: 16%;
+    top: 15%;
     right: 2%;
     font-size: 18px;
     font-weight: 600;
@@ -16,8 +16,8 @@
 
 .toastMsg {
     width: 450px;
-    height: 80px;
-    padding: 20px;
+    height: 30px;
+    padding: 30px;
     margin: 15px 0px;
     border-radius: 10px;
     background-color: rgb(227, 229, 231);
@@ -28,6 +28,8 @@
     user-select: none;
     transform: translateX(100%);
     animation: moveleft 0.5s linear forwards;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 1.2px;
 } 
 
 @keyframes moveleft {
@@ -37,8 +39,8 @@
 }
 
 .toastMsg img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     margin-right: 15px;
 }
 
@@ -50,12 +52,20 @@
     width: 100%;
     height: 5px;
     background-color: green;
-    /* animation-play-state: running; */
     animation: animate 5s linear forwards;
+    animation-play-state: running;
 }
 
 @keyframes animate {
     100% {
         width: 0;
     }
+}
+
+.toastMsg.paused::after {
+    animation-play-state: paused;
+}
+
+.toastMsg.running::after {
+    animation-play-state: running;
 }

@@ -105,36 +105,10 @@
     </div>
 
     <script src="../js/jQuery/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script src="../js/Message.js"></script>
 
     <script>
     $(document).ready(function(){   
-
-
-        let messageBox = $("#messageBox");
-        let querySuccess = `<img src='../images/check.png'> Success ! Query inserted successfully.`;
-        let success = `<img src='../images/check.png'> Success ! Account created successfully.`;
-        let successRegister = `<img src='../images/check.png'> Success ! Registration successfully.`;
-        
-        let queryFailure = `<img src='../images/cancel.png'> Error ! Query not inserted.`;
-        let errorField = `<img src='../images/cancel.png'> Error ! All fields are required.`;
-        let errorPass = `<img src='../images/cancel.png'> Error ! Password doesn't match.`;
-        let errorRegister = `<img src='../images/cancel.png'> Error ! Faild to inserted data.`;
-        let errorUserExist = `<img src='../images/cancel.png'> Error ! User already Exist.`;
-        
-        let invalid = `<img src='../images/alert.png'> Invalid ! Invalid Credentials.`;
-        let invalidMobile = `<img src='../images/alert.png'> Invalid ! Mobile number should be 10 digits.`;
-        let invalidEmail = `<img src='../images/alert.png'> Invalid ! Email id.`;
-        let invalidPass = `<img src='../images/alert.png'> Invalid ! Password should be at least 8 characters.`;
-
-        const message = (msg) => {
-
-            let toast = $("<div></div>").addClass("toastMsg bg-body-secondary").html(msg);
-            messageBox.append(toast);
-
-            setTimeout(() => {
-            toast.remove();
-            }, 5000);
-        };
 
         function validateEmail(email) {
 
@@ -175,26 +149,26 @@
     
             if (name === "" || empId === "" || phone === "" || email === "" || address === "" || password === "" || confirmPassword === "") {   
     
-                message(errorField);   
+                message("error", "All fields are required");   
                 return;
             }
             else {
     
                 if (phone.length !== 10) {
     
-                    message(invalidMobile);
+                    message("error", "Please enter valid phone number");
                     return;
                 }
     
                 if (password.length < 8 && confirmPassword.length < 8) {
     
-                    message(invalidPass);
+                    message("alert", "Password at least 8 characters long");
                     return;
                 }
     
                 if (!validateEmail(email)) {
     
-                    message(invalidEmail);
+                    message("error", "Please enter a valid email address");
                     return;
                 }
     
@@ -212,15 +186,15 @@
                                 $("#addAdminModal").modal("hide");
 
                                 getAdmins();
-                                message(successRegister);
+                                message("success", "Admin has been added successfully");
                             }
                             else if (data == "user exist") {
     
-                                message(errorUserExist);
+                                message("error", "User already exists");
                             }
                             else {
     
-                                message(errorRegister);
+                                message("error", "Something went wrong");
                             }
                         }
                     });
@@ -229,7 +203,7 @@
     
                     if (password !== confirmPassword) {
     
-                        message(errorPass);
+                        message("error", "Password does not match");
                     }
                 }
             }
