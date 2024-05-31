@@ -207,14 +207,14 @@
                     success: function(response) {
                         
                         if (response == "success") {
-
                             message("success", "Profile updated successfully");
-
                             $("#editProfileModal").modal("hide");
                             getAdminProfileData();
+                        }
+                        else if (response == "no update") {
+                            message("alert", "Please enter updated information");
                         } 
-                        else {   
-
+                        else {
                             message("error", "Something went wrong while updating profile");
                         }
                     }

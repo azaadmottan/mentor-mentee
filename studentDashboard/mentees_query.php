@@ -58,31 +58,14 @@
     </div>
 
     <script src="../js/jQuery/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script src="../js/Message.js"></script>
 
     <script>
-    $(document).ready(function(){   
-
-        let messageBox = $("#messageBox");
-
-        let successQuery = `<img src='../images/check.png'> Success ! Query submit successfully.`;
-        let errorField = `<img src='../images/cancel.png'> Error ! All fields are required.`;
-        let errorMentor = `<img src='../images/cancel.png'> Error ! Mentor is not allocated.`;
-        let invalid = `<img src='../images/alert.png'> Invalid ! Something went wrong while submit query.`;
-        
-        const message = (msg) => {
-
-            let toast = $("<div></div>").addClass("toastMsg bg-body-secondary").html(msg);
-            messageBox.append(toast);
-
-            setTimeout(() => {
-                toast.remove();
-            }, 5000);
-        };
+    $(document).ready(function(){
 
         function getQueries () {
             
             $.ajax({
-                        
                 url: "./ajax/ajax_fetch_mentee_queries.php",
                 type: "POST",
 
@@ -103,8 +86,7 @@
             let description = $("#description").val();
 
             if (title === "" || description === "") {
-
-                message(errorField);
+                message("error", "All fields are required");
                 return;
             }
             else {
@@ -116,21 +98,16 @@
                     
                     success : function(data){
 
-                        
                         if (data == "success") {
-
                             $("#menteeQuery").trigger("reset");
                             getQueries();
-
-                            message(successQuery);
+                            message("success", "Query submitted successfully");
                         }
                         else if (data == "mentor not allocated") {
-
-                            message(errorMentor);
+                            message("alert", "Mentor not allocated");
                         }
                         else  {
-
-                            message(invalid);
+                            message("error", "Something went wrong");
                         }
                     }
                 });

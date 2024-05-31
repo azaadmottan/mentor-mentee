@@ -30,11 +30,12 @@
     
     
         if ($row == 1) {
-    
             echo "success";
         }
+        else if ($row == 0) {
+            echo "no update";
+        }
         else {
-            
             echo "fail";
         }
     }

@@ -209,6 +209,9 @@
                             message("success", "Profile updated successfully");
                             $("#editProfileModal").modal("hide");
                             getMentorProfileData();
+                        }
+                        else if (response == "no update") {
+                            message("alert", "Please enter updated information");
                         } 
                         else {
                             message("error", "Something went wrong");

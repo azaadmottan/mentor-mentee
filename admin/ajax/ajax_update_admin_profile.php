@@ -27,6 +27,9 @@
     
             echo "success";
         }
+        else if ($row == 0) {
+            echo "no update";
+        }
         else {
             
             echo "fail";
