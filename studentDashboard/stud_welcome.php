@@ -23,6 +23,33 @@
             user-select: none;
         }
 
+        #currentNotifications {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .notification {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            position: relative;
+            animation: scroll 8s linear infinite;
+        }
+        @keyframes scroll {
+            0% {
+                top: 0%;
+            }
+            100% {
+                top: -100%;
+            }
+        }
+
+        #currentNotifications:hover .notification {
+            animation-play-state: paused;
+        }
     </style>
 
 </head>
@@ -81,6 +108,16 @@
                     </div>
                 </div>
             </div>
+
+            <div class="container bg-body-secondary mt-4 rounded-2 p-4">
+
+                <div class="row p-2 mt-3 bg-dark-subtle text-center rounded-1">
+                    <h4>Current Notifications</h4>
+                </div>
+
+                <div id="currentNotifications" class="mt-2 p-3 bg-dark-subtle rounded-3">
+                </div>
+            </div>
         </div>
     </div>
 
@@ -88,28 +125,25 @@
 
     <script>
 
-        $(document).ready(function() {
+    $(document).ready(function() {
 
-            let messageBox = $("#messageBox");
+        function getNotifications () {
             
-            let selectfile = `<img src='../images/cancel.png'> Error ! Please choose profile picture.`;
-            let reloadPage = `<img src='../images/alert.png'> Alert ! Please reload page to update profile.`;
-            let errorFileUpload = `<img src='../images/cancel.png'> Error ! Failed to upload file.`;
-            let successFileUploaded = `<img src='../images/check.png'> Success ! File Uploaded Successfully.`;
+            $.ajax({
+                url: "./ajax/ajax_fetch_notifications.php",
+                type: "POST",
 
-            const message = (msg) => {
+                success: function(response){
+                    $("#currentNotifications").html(response);
+                }
+            });
+        }
 
-                let toast = $("<div></div>").addClass("toast").html(msg);
-                messageBox.append(toast);
+        getNotifications();
 
-                setTimeout(() => {
-                    toast.remove();
-                }, 5000);
-            };
-        });
+        
+    });
 
     </script>
-
-    
 </body>
 </html>

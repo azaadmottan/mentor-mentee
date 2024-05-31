@@ -94,12 +94,39 @@
                 <div class="row p-2 bg-dark-subtle text-center rounded-1">
                     <h4>Notification</h4>
                 </div>
-                <h5 class="text-center mt-3">No Query Found !</h5>
+
+                <div class="row d-flex flex-column flex-md-row px-2 py-3 mt-4 bg-dark-subtle rounded-2">
+                <form method="post" id="notificationForm">
+                    <div class="row d-flex flex-column flex-md-row p-2 bg-dark-subtle rounded-2">
+                        <label for="title" class="form-label fs-5 fw-medium">Title</label>
+                        <input type="text" id="title" class="form-control border-2 shadow-none fs-5" placeholder="Enter title here...">
+                    </div>
+
+                    <div class="row d-flex flex-column flex-md-row p-2 mt-2 bg-dark-subtle rounded-2">
+                        <label for="description" class="form-label fs-5 fw-medium">Description</label>
+                        <textarea type="text" id="description" class="form-control border-2 shadow-none fs-5" placeholder="Enter description here..."></textarea>
+                    </div>
+
+                    <div>
+                        <input type="submit" value="Add Notification" id="addNotification" class="btn btn-primary mt-4 fw-medium">
+                    </div>
+                </form>
+                </div>
+            </div>
+            
+            <div class="container bg-body-secondary mt-4 rounded-2 p-4">
+
+                <div class="row p-2 mt-3 bg-dark-subtle text-center rounded-1">
+                    <h4>Current Notifications</h4>
+                </div>
+
+                <div id="currentNotifications" class="mt-2 p-3 bg-dark-subtle rounded-3 overflow-x-auto overflow-y-auto" style="height: 600px"></div>
             </div>
         </div>
     </div>
 
     <script src="../js/jQuery/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script src="../js/Message.js"></script>
 
     <script>
         function updateDateTime() {
@@ -129,6 +156,53 @@
         updateDateTime();
 
         $(document).ready(function() {
+            
+            function getNotifications () {
+                
+                $.ajax({
+                    url: "./ajax/ajax_fetch_notifications.php",
+                    type: "POST",
+    
+                    success: function(response){
+    
+                        $("#currentNotifications").html(response);
+                    }
+                });
+            }
+    
+            getNotifications();
+    
+            $("#addNotification").on("click", function(e) {
+    
+                e.preventDefault();
+    
+                let title = $("#title").val();
+                let description = $("#description").val();
+    
+                if (title === "" || description === "") {
+                    message("error", "All fields are required");
+                    return;
+                }
+                else {
+    
+                    $.ajax({
+                        url : "./ajax/ajax_add_notification.php",
+                        type : "POST",
+                        data : { title: title, description: description },
+                        
+                        success : function(response){
+                            if (response == "success") {
+                                $("#notificationForm").trigger("reset");
+                                getNotifications();
+                                message("success", "Notification added successfully");
+                            }
+                            else  {
+                                message("error", "Something went wrong");
+                            }
+                        }
+                    });
+                }
+            });
 
             // upload the file
 

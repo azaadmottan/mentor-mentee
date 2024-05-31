@@ -26,6 +26,7 @@
     <style>
         body {
             background-color: #000022;
+            user-select: none;
         }
         .main-container {
             width: 100vw;
