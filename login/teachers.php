@@ -30,6 +30,10 @@
             width: 100vw;
             height: 100vh;
         }
+        input::placeholder {
+            font-size: 16px;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
@@ -63,13 +67,13 @@
                         <label class="form-label fs-5 fw-semibold text-white" >Password</label>
                         <div class="input-group">
                             <input type="password" class="form-control shadow-none" placeholder="Enter your password" id="pass" />
-                            <span class="input-group-text" id="togglePassword" type="button">
+                            <span class="input-group-text" id="togglePassword" type="button" title="Toggle show / hide password">
                                 <i class="fas fa-eye"></i>
                             </span>
                         </div>
                     </div>
                     <div class="links text-white">
-                        <p>Dont't have an account <a href="../register/teach_register.php">SignUp</a></p>
+                        <p>Don't have an account <a href="../register/teach_register.php">SignUp</a></p>
                     </div>
                     
                     <div>
@@ -102,6 +106,7 @@
     <script src="../js/portal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="../js/jQuery/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script src="../js/Message.js"></script>
 
     <script>
 
@@ -119,24 +124,6 @@
 
         $(document).ready(function() {
 
-            let messageBox = $("#messageBox");
-
-            let errorField = `<img src='../images/alert.png'> Invalid ! All fields are required.`;
-            let loggedin = `<img src='../images/check.png'> Success ! You are logged in.`;
-            
-            let errorInvalidCredentials = `<img src='../images/cancel.png'> Invalid ! Invalid Credentials.`;
-            let errorInvalidPassword = `<img src='../images/cancel.png'> Invalid ! Wrong Password.`;
-
-            const message = (msg) => {
-
-                let toast = $("<div></div>").addClass("toastMsg").html(msg);
-                messageBox.append(toast);
-
-                setTimeout(() => {
-                    toast.remove();
-                }, 5000);
-            };
-
             $("#login").on("click", function(e){
 
                 e.preventDefault();
@@ -145,8 +132,7 @@
                 let pass = $("#pass").val();
 
                 if (email === "" || pass === "") {
-
-                    message(errorField);
+                    message("error", "All fields are required");
                 }
                 else {
 
@@ -159,12 +145,13 @@
                         success: function(data){
 
                             if (data === "invalid credentials") {
-
-                                message(errorInvalidCredentials)
+                                message("error", "Invalid credentials")
                             }
                             else if (data === "invalid password") {
-
-                                message(errorInvalidPassword);
+                                message("error", "Wrong password");
+                            }
+                            else {
+                                message("error", "Something went wrong");
                             }
 
                             if (data === "logged in") {

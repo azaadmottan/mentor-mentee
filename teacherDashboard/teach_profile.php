@@ -143,33 +143,10 @@
     </div>
 
     <script src="../js/jQuery/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script src="../js/Message.js"></script>
 
     <script>
-    $(document).ready(function(){ 
-        
-        let messageBox = $("#messageBox");
-        let errorField = `<img src='../images/cancel.png'> Error ! All fields are required.`;
-        let successAddStudent = `<img src='../images/check.png'> Success ! Add Student Successfully.`;
-        let successProfileUpdate = `<img src='../images/check.png'> Success ! Profile Update Successfully.`;
-        let successPasswordUpdate = `<img src='../images/check.png'> Success ! Password Update Successfully.`;
-        let successDelete = `<img src='../images/check.png'> Success ! Delete Student Data Successfully.`;
-        let errorUserExist = `<img src='../images/cancel.png'> Error ! User already Exist.`;
-        let errorRegister = `<img src='../images/cancel.png'> Error ! Failed to inserted data.`;
-        let errorUpdateProfile = `<img src='../images/cancel.png'> Error ! Failed to Update Profile.`;
-        let errorUpdatePassword = `<img src='../images/cancel.png'> Error ! Failed to Update Profile.`;
-        let errorDelete = `<img src='../images/cancel.png'> Error ! Failed to Delete data.`;
-        let errorPass = `<img src='../images/cancel.png'> Error ! Password doesn't match.`;
-        let invalidEmail = `<img src='../images/alert.png'> Invalid ! Invalid email address.`;
-
-        const message = (msg) => {
-
-            let toast = $("<div></div>").addClass("toastMsg bg-body-secondary").html(msg);
-            messageBox.append(toast);
-
-            setTimeout(() => {
-                toast.remove();
-            }, 5000);
-        };
+    $(document).ready(function(){
 
         // fetch Admin Profile Data
 
@@ -215,8 +192,7 @@
 
             
             if (name === "" || phone === "" || address === "") {
-                
-                message(errorField);
+                message("error", "All fields are required");
                 return;
             }
             else {
@@ -230,15 +206,12 @@
                     success: function(response) {
                         
                         if (response == "success") {
-
-                            message(successProfileUpdate);
-
+                            message("success", "Profile updated successfully");
                             $("#editProfileModal").modal("hide");
                             getMentorProfileData();
                         } 
-                        else {   
-
-                            message(errorUpdateProfile);
+                        else {
+                            message("error", "Something went wrong");
                         }
                     }
                 });
@@ -255,8 +228,7 @@
             let cPassword = $("#teachCPass").val();
 
             if (uPassword === "" || cPassword === "") {
-
-                message(errorField);
+                message("error", "All fields are required");
                 return;
             }
             else {
@@ -272,24 +244,21 @@
                         success: function(response) {
                             
                             if (response == "success") {
-                                
                                 $("#updateTeachPasswordModal").modal("hide");
                                 $("#teachUPForm").trigger("reset");
-                                message(successPasswordUpdate);
+                                message("success", "Password updated successfully");
                             } 
                             else {       
-                                message(errorUpdatePassword);
+                                message("error", "Something went wrong");
                             }
                         }
                     }); 
                 }
                 else {
-
-                    message(errorPass);
+                    message("error", "Password does not match");
                 }
             }
         });
-
     });
     </script>
 </body>

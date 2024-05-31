@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../images/ssgi_favicon.jpg" type="image/x-icon">
 
+    <link rel="stylesheet" href="../css/message.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
 </head>
@@ -119,7 +120,7 @@
                         </div>
                     </div>
 
-                    <div id="mentorMenteesRecord" class="overflow-scroll"></div>
+                    <div id="mentorMenteesRecord" class="overflow-x-auto overflow-y-auto" style="height: 345px;"></div>
 
                 </div>
 
@@ -132,7 +133,7 @@
                         <h4 class="text-center">Mentees</h4>
                     </div>
 
-                    <div id="menteesRecord" class="overflow-scroll"></div>
+                    <div id="menteesRecord" class="overflow-x-auto overflow-y-auto" style="height: 345px;"></div>
 
                 </div>
 
@@ -141,6 +142,7 @@
     </div>
 
     <script src="../js/jQuery/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script src="../js/Message.js"></script>
 
     <script>
     $(document).ready(function(){   
@@ -233,6 +235,10 @@
 
                         getMentorMentees();
                         getMentees();
+                        message("success", "Mentee added successfully");
+                    }
+                    else {
+                        message("error", "Something went wrong");
                     }
                 }
             });
@@ -259,6 +265,10 @@
 
                         getMentorMentees();
                         getMentees();
+                        message("success", "Mentee removed successfully");
+                    }
+                    else {
+                        message("error", "Something went wrong");
                     }
                 }
             });
