@@ -33,7 +33,7 @@
                                 ";
                 $output .= "
     
-                        <p style='font-size:18px; font-weight:400'>
+                        <p style='font-size:18px; font-weight:400' class='bg-dark-subtle'>
                             {$row['description']}
                         </p>
                     </div>

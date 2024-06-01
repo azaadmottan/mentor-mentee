@@ -22,7 +22,39 @@
         img {
             user-select: none;
         }
+        .notification-container {
+            overflow: hidden;
+            width: 100%;
+        }
+        .brands {
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            height: 500px;
+        }
+        .brands__preWrapper {
+            display: flex;
+            flex-direction: column;
+        }
 
+        .brands__wrapper {
+            animation: verticalScroll 20s linear infinite;
+        }
+        .brands__wrapper p {
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .brands__wrapper:hover {
+            animation-play-state: paused;
+        }
+        @keyframes verticalScroll {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(calc(-100% - 10px)); 
+            }
+        }
     </style>
 
 </head>
@@ -68,10 +100,17 @@
                 
             <div class="container bg-body-secondary mt-4 rounded-2 p-4">
 
-                <div class="row p-2 bg-dark-subtle text-center">
-                    <h4>Queries of Student</h4>
+                <div class="row p-2 mt-3 bg-dark-subtle text-center rounded-1">
+                    <h4>Current Notifications</h4>
                 </div>
-                <h5 class="text-center mt-3">No Query Found !</h5>
+                <div class="notification-container mt-3 bg-dark-subtle rounded-3">
+                    <div class="brands">
+                        <div class="brands__preWrapper position-relative z-0">
+                            <div id="currentNotifications" class="brands__wrapper">
+                            </div>            
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -81,6 +120,20 @@
     <script>
 
         $(document).ready(function() {
+
+            function getNotifications () {
+            
+                $.ajax({
+                    url: "./ajax/ajax_fetch_notifications.php",
+                    type: "POST",
+
+                    success: function(response){
+                        $("#currentNotifications").html(response);
+                    }
+                });
+            }
+
+            getNotifications();
 
             const updateProfile = () => {
 
@@ -99,7 +152,7 @@
             }
 
             updateProfile();
-            
+
             // upload the file
 
             $('#imgUploadForm').submit(function(e) {

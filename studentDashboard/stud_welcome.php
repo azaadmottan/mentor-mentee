@@ -22,33 +22,38 @@
         img {
             user-select: none;
         }
-
-        #currentNotifications {
-            position: relative;
-            width: 100%;
-            height: 400px;
+        .notification-container {
             overflow: hidden;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
+            width: 100%;
         }
-        .notification {
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-            position: relative;
-            animation: scroll 8s linear infinite;
+        .brands {
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            height: 500px;
         }
-        @keyframes scroll {
+        .brands__preWrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brands__wrapper {
+            animation: verticalScroll 20s linear infinite;
+        }
+        .brands__wrapper p {
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .brands__wrapper:hover {
+            animation-play-state: paused;
+        }
+        @keyframes verticalScroll {
             0% {
-                top: 0%;
+                transform: translateY(0);
             }
             100% {
-                top: -100%;
+                transform: translateY(calc(-100% - 10px)); 
             }
-        }
-
-        #currentNotifications:hover .notification {
-            animation-play-state: paused;
         }
     </style>
 
@@ -115,7 +120,13 @@
                     <h4>Current Notifications</h4>
                 </div>
 
-                <div id="currentNotifications" class="mt-2 p-3 bg-dark-subtle rounded-3">
+                <div class="notification-container mt-3 bg-dark-subtle rounded-3">
+                    <div class="brands">
+                        <div class="brands__preWrapper position-relative z-0">
+                            <div id="currentNotifications" class="brands__wrapper">
+                            </div>            
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

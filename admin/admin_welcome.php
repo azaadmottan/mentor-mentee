@@ -171,7 +171,8 @@
             }
     
             getNotifications();
-    
+            
+            // add notifications
             $("#addNotification").on("click", function(e) {
     
                 e.preventDefault();
@@ -202,6 +203,31 @@
                         }
                     });
                 }
+            });
+
+            // remove notifications
+            $(document).on("click", ".removeNotificationBtn", function () {
+
+                let notificationId = $(this).data("removeid");
+
+                $.ajax({
+                    url: "./ajax/ajax_remove_notification.php",
+                    type: "POST",
+                    data: { notificationId: notificationId },
+                    dataType: "text",
+
+                    success: function(response){
+                        
+                        if  (response == "success remove") {
+
+                            getNotifications();
+                            message("success", "Notification removed successfully");
+                        }
+                        else {
+                            message("error", "Failed to remove Notification");
+                        }
+                    }
+                });
             });
 
             // upload the file
